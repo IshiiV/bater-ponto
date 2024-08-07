@@ -1,14 +1,15 @@
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom/client";
+import BaterPonto from './BaterPonto';
+
+const el = document.getElementById("root");
+const root = ReactDOM.createRoot(el!);
 
 const App = () => {
 	return (
 		<div>
-			<h1>Hi there</h1>
+			<BaterPonto/>
 		</div>
 	);
 };
 
-ReactDOM.render(
-	<App/>,
-	document.querySelector('#root')
-);
+root.render(<App />);
