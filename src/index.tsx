@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import BaterPonto from './BaterPonto';
+import BaterPonto from './components/BaterPonto';
 
 const el = document.getElementById("root");
 const root = ReactDOM.createRoot(el!);
@@ -13,3 +13,26 @@ const App = () => {
 };
 
 root.render(<App />);
+
+
+
+
+// import ReactDOM from "react-dom/client";
+// import BaterPonto from "./components/BaterPonto";
+// import { Provider } from "react-redux";
+// import { store } from "./state/store";
+
+// const el = document.getElementById("root");
+// const root = ReactDOM.createRoot(el!);
+
+// const App = () => {
+// 	return (
+// 		<Provider store = {store}>
+// 			<div>
+// 				<BaterPonto/>
+// 			</div>
+// 		</Provider>
+// 	);
+// };
+
+// root.render(<App />);

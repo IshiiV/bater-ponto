@@ -1,5 +1,6 @@
-import Expediente from "./components/Expediente";
-import Intervalo from "./components/Intervalo";
+import Expediente from "./Expediente";
+import Intervalo from "./Intervalo";
+import Tela from "./Tela";
 import dayjs from 'dayjs';
 import { useState } from 'react';
 
@@ -18,33 +19,6 @@ const BaterPonto: React.FC = ()=>{
 		minuto: 0,
 		segundo: 0,
 	});
-
-	const resetar = () => {
-		setEntrada({
-			...entrada,
-			hora: 0,
-			minuto: 0,
-			segundo: 0,
-		});
-		setIntervalo({
-			...intervalo,
-			hora: 0,
-			minuto: 0,
-			segundo: 0,
-		});
-		setShowInicio(true);
-		setShowIntervalo(true);
-		console.clear() 
-		setTempoIntervalo(0);
-		setTempoExpediente(0);
-	};
-
-	const valores = () => {
-		console.log(entrada);
-		console.log(intervalo);
-		console.log(tempoIntervalo);
-	};
-
 
 	const handleStart = () => {
 		setShowInicio(!showInicio);
@@ -78,13 +52,11 @@ const BaterPonto: React.FC = ()=>{
 		setTempoIntervalo((3600 * (parseInt(dayjs().format('H')) - intervalo.hora)) +
 											(60 * (parseInt(dayjs().format('m')) - intervalo.minuto)) +
 											(parseInt(dayjs().format('s')) - intervalo.segundo));
-		setShowIntervalo(!showIntervalo);
   };
 	
   return (
 		<div>
-			<button onClick={resetar}>Reset</button>
-			<button onClick={valores}>Ver valores</button>
+			<Tela showIntervalo = {showIntervalo} entrada = {entrada} intervalo = {intervalo} tempoExpediente = {tempoExpediente} tempoIntervalo = {tempoIntervalo}/>
 			<Expediente handleStart = {handleStart} handleFinish = {handleFinish} showInicio = {showInicio} tempoExpediente = {tempoExpediente}/>
 			<Intervalo handleIntervaloInicio = {handleIntervaloInicio} handleIntervaloTermino = {handleIntervaloTermino} showInicio = {showInicio} tempoIntervalo={tempoIntervalo} showIntervalo = {showIntervalo}/>
 		</div>
