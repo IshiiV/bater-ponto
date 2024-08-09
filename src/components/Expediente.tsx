@@ -15,9 +15,9 @@ export const Expediente: React.FC<ChildProps> = ({
 
 
 		if (estado === 0)
-			content = <TimerAsFC handleTimer = {handleStart}>Começar expediente </TimerAsFC>
+			content = <TimerAsFC comeco handleTimer = {handleStart}>Começar expediente </TimerAsFC>
 		if (estado === 1 || estado === 3)
-			content = <TimerAsFC handleTimer = {handleFinish}> Terminar expediente </TimerAsFC>
+			content = <TimerAsFC termino handleTimer = {handleFinish}> Terminar expediente </TimerAsFC>
 
 			
   return (

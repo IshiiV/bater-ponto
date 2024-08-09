@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom/client";
 import BaterPonto from './components/BaterPonto';
+import './index.css';
 
 const el = document.getElementById("root");
 const root = ReactDOM.createRoot(el!);

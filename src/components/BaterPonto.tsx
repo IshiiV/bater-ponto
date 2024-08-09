@@ -10,7 +10,6 @@ const BaterPonto: React.FC = ()=>{
 	const [intervaloEntrada, setIntervaloEntrada] = useState(dayjs());
 	const [intervaloSaida, setIntervaloSaida] = useState(dayjs());
 	const [estado, setEstado] = useState(0);
-	const [intervalo, setIntervalo] = useState(false);
 
 	const handleStart = () => {
 		setEstado(1);
@@ -19,22 +18,22 @@ const BaterPonto: React.FC = ()=>{
 
 	const handleFinish = () => {
 		setExpedienteSaida(dayjs());
-		setEstado(4);
-		if (!intervalo)
+		if (estado === 1)
 			setEstado(5);
+		else 
+			setEstado(4);
   };
 
 	const handleIntervaloInicio = () => {
 		setIntervaloEntrada(dayjs());
 		setEstado(2);
-		setIntervalo(true);
   };
 
 	const handleIntervaloTermino = () => {
 		setIntervaloSaida(dayjs());
 		setEstado(3);
-  };
-
+	//	if (intervaloSaida.diff(intervaloEntrada, 'seconds') !== 0)
+	}
   return (
 		<div>
 			<Tela estado = {estado} expedienteEntrada = {expedienteEntrada} expedienteSaida = {expedienteSaida} intervaloEntrada = {intervaloEntrada} intervaloSaida = {intervaloSaida}/>

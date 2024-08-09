@@ -15,9 +15,9 @@ export const Intervalo: React.FC<ChildProps> = ({
 
 
 	if (estado === 1)
-		content = <TimerAsFC handleTimer = {handleIntervaloInicio}> Começar intervalo </TimerAsFC>
+		content = <TimerAsFC comeco handleTimer = {handleIntervaloInicio}> Começar intervalo </TimerAsFC>
 	if (estado === 2)
-		content = <TimerAsFC handleTimer = {handleIntervaloTermino}> Terminar intervalo </TimerAsFC>
+		content = <TimerAsFC termino handleTimer = {handleIntervaloTermino}> Terminar intervalo </TimerAsFC>
 
   return (
 		<div>
