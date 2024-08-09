@@ -1,51 +1,56 @@
 interface ChildProps {
-	showIntervalo: boolean;
-	entrada: {
-		hora: number,
-		minuto: number,
-		segundo: number,
-	};
-	intervalo: {
-		hora: number,
-		minuto: number,
-		segundo: number,
-	};
-	tempoExpediente: number;
-	tempoIntervalo: number;
+	estado: number;
+	expedienteEntrada: any;
+	expedienteSaida: any;
+	intervaloEntrada: any;
+	intervaloSaida: any;
 }
 
 export const Tela: React.FC<ChildProps> = ({
-	showIntervalo,
-	entrada,
-	intervalo,
-	tempoExpediente,
-	tempoIntervalo
+	estado,
+	expedienteEntrada,
+	expedienteSaida,
+	intervaloEntrada,
+	intervaloSaida,
 }) => {
-	let content;
-	let content_intervalo;
-	let content_intervalo_resultado;
+	let content_expediente_inicio;
+	let content_expediente_final;
+	let content_intervalo_inicio;
+	let content_intervalo_final;
 
+	switch(estado) {
+		case 1:
+			content_expediente_inicio = <div>Início do Expediente: {expedienteEntrada.hour()}:{expedienteEntrada.minute()}:{expedienteEntrada.second()}</div>
+		break;
+		case 2:
+			content_expediente_inicio = <div>Início do Expediente: {expedienteEntrada.hour()}:{expedienteEntrada.minute()}:{expedienteEntrada.second()}</div>
+			content_intervalo_inicio = <div>Início do Intervalo: {intervaloEntrada.hour()}:{intervaloEntrada.minute()}:{intervaloEntrada.second()}</div>
+		break;
+		case 3:
+			content_expediente_inicio = <div>Início do Expediente: {expedienteEntrada.hour()}:{expedienteEntrada.minute()}:{expedienteEntrada.second()}</div>
+			content_intervalo_inicio = <div>Início do Intervalo: {intervaloEntrada.hour()}:{intervaloEntrada.minute()}:{intervaloEntrada.second()}</div>
+			content_intervalo_final = <div>Início do Intervalo: {intervaloSaida.hour()}:{intervaloSaida.minute()}:{intervaloEntrada.second()}</div>
+		break;
+		case 4:
+			content_expediente_inicio = <div>Início do Expediente: {expedienteEntrada.hour()}:{expedienteEntrada.minute()}:{expedienteEntrada.second()}</div>
+			content_expediente_final = <div>Fim do Expediente: {expedienteSaida.hour()}:{expedienteSaida.minute()}:{expedienteSaida.second()}</div>
+			content_intervalo_inicio = <div>Início do Intervalo: {intervaloEntrada.hour()}:{intervaloEntrada.minute()}:{intervaloEntrada.second()}</div>
+			content_intervalo_final = <div>Início do Intervalo: {intervaloSaida.hour()}:{intervaloSaida.minute()}:{intervaloEntrada.second()}</div>
+		break;
+		case 5:
+			content_expediente_inicio = <div>Início do Expediente: {expedienteEntrada.hour()}:{expedienteEntrada.minute()}:{expedienteEntrada.second()}</div>
+			content_expediente_final = <div>Fim do Expediente: {expedienteSaida.hour()}:{expedienteSaida.minute()}:{expedienteSaida.second()}</div>
+		break;
+		default:
+	}
 
-	if (tempoExpediente !== 0)
-		content = <div>Tempo do expediente foi {Math.floor(tempoExpediente/3600)} horas, {Math.floor(tempoExpediente/60)} minutos e {tempoExpediente%60} segundos</div>;
-		if(!showIntervalo){
-			content_intervalo = <div>Início do intervalo: {intervalo.hora}:{intervalo.minuto}:{intervalo.segundo}</div>
-			if(tempoIntervalo !== 0)
-				if(tempoIntervalo <= 3600)
-					content_intervalo_resultado = <div>Tempo do intervalo foi {Math.floor(tempoIntervalo/3600)} horas, {Math.floor(tempoIntervalo/60)} minutos e {tempoIntervalo%60} segundos</div>;
-				else
-					content_intervalo_resultado = <div>Tempo de intervalo superior do limite de 1 hora</div>
-		}
-	
   return (
 		<div>
-			<h1>Bater Ponto</h1>
-			
-			<div>Início do expediente: {entrada.hora}:{entrada.minuto}:{entrada.segundo}</div>
-			{content}
-			{content_intervalo}
-			{content_intervalo_resultado}
-
+			<h1>Bater Ponto</h1>		
+			{content_expediente_inicio}
+			{content_expediente_final}
+			{content_intervalo_inicio}
+			{content_intervalo_final}
 		</div>
   );
 };

@@ -3,23 +3,22 @@ import { TimerAsFC } from './Timer';
 interface ChildProps {
   handleStart: () => void;
 	handleFinish: () => void;
-	showInicio: boolean;
-	tempoExpediente: number;
+	estado: number;
 }
 
 export const Expediente: React.FC<ChildProps> = ({
   handleStart,
 	handleFinish,
-	showInicio,
-	tempoExpediente
+	estado,
 }) => {
 	let content;
 
-	if (tempoExpediente === 0)
-		if (showInicio)
+
+		if (estado === 0)
 			content = <TimerAsFC handleTimer = {handleStart}>Começar expediente </TimerAsFC>
-		else
+		if (estado === 1 || estado === 3)
 			content = <TimerAsFC handleTimer = {handleFinish}> Terminar expediente </TimerAsFC>
+
 			
   return (
 		<div>
