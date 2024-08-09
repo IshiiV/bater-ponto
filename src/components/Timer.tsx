@@ -22,7 +22,6 @@ export const TimerAsFC: React.FC<ChildProps> = ({
 			}
 	);
 
-
   return (
 		<div className="flex">
 			<button className={classes} onClick = {handleTimer}>{children}</button>

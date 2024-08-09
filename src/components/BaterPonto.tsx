@@ -32,7 +32,6 @@ const BaterPonto: React.FC = ()=>{
 	const handleIntervaloTermino = () => {
 		setIntervaloSaida(dayjs());
 		setEstado(3);
-	//	if (intervaloSaida.diff(intervaloEntrada, 'seconds') !== 0)
 	}
   return (
 		<div>
