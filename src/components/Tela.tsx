@@ -21,30 +21,31 @@ export const Tela: React.FC<ChildProps> = ({
 
 	switch(estado) {
 		case 1:
-			content_expediente_inicio = <div>Início do Expediente: {expedienteEntrada.hour()}:{expedienteEntrada.minute()}:{expedienteEntrada.second()}</div>
+			content_expediente_inicio = <div>Início do Expediente: {expedienteEntrada.format('HH:mm:ss')}</div>
 		break;
 		case 2:
-			content_expediente_inicio = <div>Início do Expediente: {expedienteEntrada.hour()}:{expedienteEntrada.minute()}:{expedienteEntrada.second()}</div>
-			content_intervalo_inicio = <div>Início do Intervalo: {intervaloEntrada.hour()}:{intervaloEntrada.minute()}:{intervaloEntrada.second()}</div>
+			content_expediente_inicio = <div>Início do Expediente: {expedienteEntrada.format('HH:mm:ss')}</div>
+			content_intervalo_inicio = <div>Início do Intervalo: {intervaloEntrada.format('HH:mm:ss')}</div>
 		break;
 		case 3:
-			content_expediente_inicio = <div>Início do Expediente: {expedienteEntrada.hour()}:{expedienteEntrada.minute()}:{expedienteEntrada.second()}</div>
-			content_intervalo_inicio = <div>Início do Intervalo: {intervaloEntrada.hour()}:{intervaloEntrada.minute()}:{intervaloEntrada.second()}</div>
-			content_intervalo_final = <div>Fim do Intervalo: {intervaloSaida.hour()}:{intervaloSaida.minute()}:{intervaloSaida.second()}</div>
+			content_expediente_inicio = <div>Início do Expediente: {expedienteEntrada.format('HH:mm:ss')}</div>
+			content_intervalo_inicio = <div>Início do Intervalo: {intervaloEntrada.format('HH:mm:ss')}</div>
+			content_intervalo_final = <div>Fim do Intervalo: {intervaloSaida.format('HH:mm:ss')}</div>
 		break;
 		case 4:
-			content_expediente_inicio = <div>Início do Expediente: {expedienteEntrada.hour()}:{expedienteEntrada.minute()}:{expedienteEntrada.second()}</div>
-			content_expediente_final = <div>Fim do Expediente: {expedienteSaida.hour()}:{expedienteSaida.minute()}:{expedienteSaida.second()}</div>
-			content_intervalo_inicio = <div>Início do Intervalo: {intervaloEntrada.hour()}:{intervaloEntrada.minute()}:{intervaloEntrada.second()}</div>
-			content_intervalo_final = <div>Fim do Intervalo: {intervaloSaida.hour()}:{intervaloSaida.minute()}:{intervaloSaida.second()}</div>
+			content_expediente_inicio = <div>Início do Expediente: {expedienteEntrada.format('HH:mm:ss')}</div>
+			content_expediente_final = <div>Fim do Expediente: {expedienteSaida.format('HH:mm:ss')}</div>
+			content_intervalo_inicio = <div>Início do Intervalo: {intervaloEntrada.format('HH:mm:ss')}</div>
+			content_intervalo_final = <div>Fim do Intervalo: {intervaloSaida.format('HH:mm:ss')}</div>
 		break;
 		case 5:
-			content_expediente_inicio = <div>Início do Expediente: {expedienteEntrada.hour()}:{expedienteEntrada.minute()}:{expedienteEntrada.second()}</div>
-			content_expediente_final = <div>Fim do Expediente: {expedienteSaida.hour()}:{expedienteSaida.minute()}:{expedienteSaida.second()}</div>
+			content_expediente_inicio = <div>Início do Expediente: {expedienteEntrada.format('HH:mm:ss')}</div>
+			content_expediente_final = <div>Fim do Expediente: {expedienteSaida.format('HH:mm:ss')}</div>
 		break;
 		default:
 	}
 
+	//if (intervaloSaida.diff(intervaloEntrada, 'seconds') > 3600 && (estado === 3 || estado === 4))
 	if (intervaloSaida.diff(intervaloEntrada, 'seconds') >= 5 && (estado === 3 || estado === 4))
 		aviso = <div className="text-center flex-auto rounded border-red-500 bg-red-500 text-black px-3 py-1.5 border">Excedeu o limite do tempo do intervalo</div>
 
